@@ -1,24 +1,76 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column        | Type   | Options     |
+| ------------- | ------ | ----------- |
+| nick_name     | string | null: false |
+| email         | string | null: false |
+| password      | string | null: false |
+| name          | string | null: false |
+| name_kana     | string | null: false |
+| date_of_birth | date   | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many : items
+- has_many : buyers
+- has_many : sipping_address
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+| Column              | Type      | Options           |
+| ------------------- | --------- | ----------------- |
+| product_name        | string    | null: false       |
+| description_of_item | text      | null: false       |
+| category            | string    | null: false       |
+| product_status      | string    | null: false       |
+| delivery            | string    | null: false       |
+| area                | string    | null: false       |
+| shipping_days       | integer   | null: false       |
+| price               | integer   | null: false       |
+| seller              | string    | null: false       |
+| user                | reference | foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to : users
+- has_many   : buyer
+- has_many   : sipping_address
 
-* Services (job queues, cache servers, search engines, etc.)
+## buyersテーブル
 
-* Deployment instructions
+| Column           | Type      | Options           |
+| ---------------- | --------- | ----------------- |
+| card_information | integer   | null: false       |
+| expiration_date  | date      | null: false       |
+| security_code    | integer   | null: false       |
+| user             | reference | foreign_key: true |
+| item             | reference | foreign_key: true |
+| sipping_address  | reference | foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to : users
+- belongs_to : items
+- has_one    : sipping_address
+
+## sipping_addressテーブル
+
+| Column         | Type      | Options           |
+| -------------- | --------- | ----------------- |
+| postal_code    | integer   | null: false       |
+| prefectures    | string    | null: false       |
+| municipalities | string    | null: false       |
+| address        | string    | null: false       |
+| building_name  | string    | null: false       |
+| phone_number   | integer   | null: false       |
+| user           | reference | foreign_key: true |
+| item           | reference | foreign_key: true |
+| buyer          | reference | foreign_key: true |
+
+### Association
+
+-belongs_to : users
+-belongs_to : items
+-has_one    : buyers
