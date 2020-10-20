@@ -2,14 +2,16 @@
 
 ## usersテーブル
 
-| Column        | Type   | Options     |
-| ------------- | ------ | ----------- |
-| nick_name     | string | null: false |
-| email         | string | null: false |
-| password      | string | null: false |
-| name          | string | null: false |
-| name_kana     | string | null: false |
-| date_of_birth | date   | null: false |
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| nick_name        | string | null: false |
+| email            | string | null: false |
+| password         | string | null: false |
+| family_name      | string | null: false |
+| first_name       | string | null: false |
+| family_name_kana | string | null: false |
+| first_name_kana  | string | null: false |
+| date_of_birth    | date   | null: false |
 
 ### Association
 
@@ -21,15 +23,14 @@
 
 | Column              | Type      | Options           |
 | ------------------- | --------- | ----------------- |
-| product_name        | string    | null: false       |
+| name                | string    | null: false       |
 | description_of_item | text      | null: false       |
 | category            | string    | null: false       |
 | product_status      | string    | null: false       |
 | delivery            | string    | null: false       |
 | area                | string    | null: false       |
-| shipping_days       | integer   | null: false       |
-| price               | integer   | null: false       |
-| seller              | string    | null: false       |
+| shipping_days       | string    | null: false       |
+| price               | string    | null: false       |
 | user                | reference | foreign_key: true |
 
 ### Association
@@ -42,12 +43,7 @@
 
 | Column           | Type      | Options           |
 | ---------------- | --------- | ----------------- |
-| card_information | integer   | null: false       |
-| expiration_date  | date      | null: false       |
-| security_code    | integer   | null: false       |
-| user             | reference | foreign_key: true |
-| item             | reference | foreign_key: true |
-| sipping_address  | reference | foreign_key: true |
+
 
 ### Association
 
@@ -59,18 +55,16 @@
 
 | Column         | Type      | Options           |
 | -------------- | --------- | ----------------- |
-| postal_code    | integer   | null: false       |
+| postal_code    | string    | null: false       |
 | prefectures    | string    | null: false       |
 | municipalities | string    | null: false       |
 | address        | string    | null: false       |
 | building_name  | string    | null: false       |
-| phone_number   | integer   | null: false       |
-| user           | reference | foreign_key: true |
-| item           | reference | foreign_key: true |
-| buyer          | reference | foreign_key: true |
+| phone_number   | string    | null: false       |
+
 
 ### Association
 
 -belongs_to : users
 -belongs_to : items
--has_one    : buyers
+-belongs_to : buyers
