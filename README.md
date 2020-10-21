@@ -20,22 +20,22 @@
 
 ## itemsテーブル
 
-| Column         | Type      | Options           |
-| -------------- | --------- | ----------------- |
-| name           | string    | null: false       |
-| description    | text      | null: false       |
-| category       | integer   | null: false       |
-| product_status | integer   | null: false       |
-| delivery       | integer   | null: false       |
-| area           | integer   | null: false       |
-| shipping_days  | integer   | null: false       |
-| price          | integer   | null: false       |
-| user           | reference | foreign_key: true |
+| Column            | Type      | Options           |
+| ----------------- | --------- | ----------------- |
+| name              | string    | null: false       |
+| description       | text      | null: false       |
+| category_id       | integer   | null: false       |
+| product_status_id | integer   | null: false       |
+| delivery_id       | integer   | null: false       |
+| area_id           | integer   | null: false       |
+| shipping_days_id  | integer   | null: false       |
+| price             | integer   | null: false       |
+| user              | reference | foreign_key: true |
 
 ### Association
 
-- belongs_to : users
-- has_many   : buyer
+- belongs_to : user
+- has_many   : buyers
 - has_many   : shipping_addresses
 
 ## buyersテーブル
@@ -47,9 +47,9 @@
 
 ### Association
 
-- belongs_to : users
-- belongs_to : items
-- has_one    : shipping_addresses
+- belongs_to : user
+- belongs_to : item
+- has_one    : shipping_address
 
 ## shipping_addressesテーブル
 
@@ -65,6 +65,4 @@
 
 ### Association
 
--belongs_to : users
--belongs_to : items
--belongs_to : buyers
+-belongs_to : buyer
