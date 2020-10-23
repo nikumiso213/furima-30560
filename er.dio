@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-10-23T01:37:57.212Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="ccbZm18V3QtpTrC-1NGR" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-10-23T09:32:25.813Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="jELV8dCJZ32_hS-rDP13" version="13.6.5">
     <diagram id="FT8n3TEMALcEfe8QFBt1" name="ページ1">
         <mxGraphModel dx="128" dy="785" grid="1" gridSize="10" guides="0" tooltips="1" connect="0" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -34,14 +34,11 @@
                         <mxPoint x="190" y="545" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="11" value="orders" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="550" width="160" height="126" as="geometry"/>
+                <mxCell id="11" value="buyer" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="550" width="160" height="76" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="user_id&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;item_id&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="11" vertex="1">
                     <mxGeometry y="26" width="160" height="50" as="geometry"/>
-                </mxCell>
-                <mxCell id="26" value="user_id&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;item_id&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="11">
-                    <mxGeometry y="76" width="160" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;startSize=6;endArrow=ERmany;endFill=0;endSize=36;targetPerimeterSpacing=0;strokeWidth=2;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
