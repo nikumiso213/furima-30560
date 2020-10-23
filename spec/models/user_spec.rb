@@ -58,6 +58,12 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
+      it 'パスワードは半角英数字を混合でないと登録できない' do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = @user.password
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid')
+      end
       it 'パスワードは確認用を入力しないと登録できない' do
         @user.password_confirmation = ''
         @user.valid?
@@ -78,8 +84,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Family name is invalid')
       end
+      it '名字は全角(漢字、ひらがな、カタカナ)で入力しないと登録できない' do
+        @user.family_name = '111'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Family name is invalid')
+      end
       it '名前が全角(漢字、ひらがな、カタカナ)で入力しないと登録できない' do
         @user.firsy_name = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name is invalid')
+      end
+      it '名前が全角(漢字、ひらがな、カタカナ)で入力しないと登録できない' do
+        @user.firsy_name = '111'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name is invalid')
       end
@@ -98,8 +114,28 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Family name kana is invalid')
       end
+      it '名字のフリガナがカタカナでないと登録できない' do
+        @user.family_name_kana = 'aaa' 
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Family name kana is invalid')
+      end
+      it '名字のフリガナがカタカナでないと登録できない' do
+        @user.family_name_kana = '亜亜亜' 
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Family name kana is invalid')
+      end
       it '名前のフリガナがカタカナでないと登録できない' do
         @user.first_name_kana = 'あああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
+      end
+      it '名前のフリガナがカタカナでないと登録できない' do
+        @user.first_name_kana = 'aaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
+      end
+      it '名前のフリガナがカタカナでないと登録できない' do
+        @user.first_name_kana = '亜亜亜'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
