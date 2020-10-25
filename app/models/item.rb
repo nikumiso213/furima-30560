@@ -6,6 +6,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :shipping_day
 
+  belongs_to :user
+  has_many   :orders
+  has_many   :shipping_addresses
+  
+  has_one_attached :image
+
   with_options presence: true do
     validates :image
     validates :name
@@ -13,16 +19,12 @@ class Item < ApplicationRecord
     validates :price, numericality: { greater_than: 299, less_than: 10_000_000 }
   end
 
-  with_options numericality: ( greater_than: 1, message: 'を選んでください') do
+  with_options numericality: { greater_than: 1, message: 'を選んでください'} do
     validates :delivery_id,       presence: true
     validates :product_status_id, presence: true
     validates :category_id,       presence: true
     validates :area_id,           presence: true
-    validates :shipping_day_id,   presence: true
+    validates :shipping_days_id,  presence: true
   end
-  belongs_to :user
-  has_many   :orders
-  has_many   :shipping_addresses
   
-  has_one_attached :image
 end
