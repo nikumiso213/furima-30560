@@ -31,7 +31,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーが--だと登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('カテゴリーを選んでください')
+        expect(@item.errors.full_messages).to include("Category を選んでください")
       end
       it '商品状態が空だと登録できない' do
         @item.product_status_id = ''
@@ -41,7 +41,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態が--だと登録できない' do
         @item.product_status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('商品の状態を選んでください')
+        expect(@item.errors.full_messages).to include("Product status を選んでください")
       end
       it '配送料が空だと登録できない' do
         @item.delivery_id = ''
@@ -51,7 +51,7 @@ RSpec.describe Item, type: :model do
       it '配送料が--だと登録できない' do
         @item.delivery_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('配送料を選んでください')
+        expect(@item.errors.full_messages).to include("Delivery を選んでください")
       end
       it '配送元の地域が空だと登録できない' do
         @item.area_id = ''
@@ -61,7 +61,7 @@ RSpec.describe Item, type: :model do
       it '配送元の地域が--だと登録できない' do
         @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送元の地域を選んでください")
+        expect(@item.errors.full_messages).to include("Area を選んでください")
       end
       it '配送までの日数が空だと登録できない' do
         @item.shipping_days_id = ''
@@ -71,7 +71,7 @@ RSpec.describe Item, type: :model do
       it '配送までの日数が--だと登録できない' do
         @item.shipping_days_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送までの日数を選んでください")
+        expect(@item.errors.full_messages).to include("Shipping days を選んでください")
       end
       it 'priceが空だと登録できない' do
         @item.price = ''
@@ -87,6 +87,11 @@ RSpec.describe Item, type: :model do
         @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+      end
+      it '画像が空だと登録できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end
     end
   end
