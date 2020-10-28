@@ -36,7 +36,7 @@
 
 - belongs_to : user
 - has_many   : orders
-- has_many   : shipping_addresses
+- has_many   : addresses
 
 ## ordersテーブル
 
@@ -49,9 +49,9 @@
 
 - belongs_to : user
 - belongs_to : item
-- has_one    : shipping_address
+- has_one    : address
 
-## shipping_addressesテーブル
+## addressesテーブル
 
 | Column         | Type    | Options     |
 | -------------- | ------- | ----------- |
