@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   def move_to_index
     if current_user.id == @item.user.id
       redirect_to root_path
-    elsif Order.find_by(item_id: @item.id)
+    elsif Order.find_by(item_id: params[:item_id])
       redirect_to root_path
     end
   end

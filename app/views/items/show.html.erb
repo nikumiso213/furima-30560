@@ -8,7 +8,7 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
-       <% if Order.find_by(item_id: params[:item_id]) %>
+       <% if Order.find_by(item_id: @item.id) %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
