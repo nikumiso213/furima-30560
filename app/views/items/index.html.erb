@@ -133,7 +133,7 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <% if @item.order %>
+          <% if Order.find_by(item_id: params[:item_id]) %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
